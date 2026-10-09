@@ -1,0 +1,108 @@
+% XeLaTeXでコンパイルしてください．
+\documentclass[a4paper,11pt]{article}
+\usepackage{xeCJK}
+\setCJKmainfont{HaranoAjiMincho-Regular.otf}[BoldFont=HaranoAjiMincho-Bold.otf]
+\renewcommand{\thesection}{\arabic{section}}
+\usepackage[margin=25mm]{geometry}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage[hidelinks]{hyperref}
+
+% 表紙の記載内容
+\newcommand{\reporttitle}{アジャイルワーク２ 実験計画書}
+\newcommand{\studentnumber}{25G1074}
+\newcommand{\studentname}{泉水 悠斗}
+
+\begin{document}
+\begin{titlepage}
+\thispagestyle{empty}
+\begin{tikzpicture}[remember picture,overlay]
+  % A4用紙左上を原点として配置．画像の枠・影・余白を再現．
+  \coordinate (origin) at (current page.north west);
+  \fill[black] ($(origin)+(17.5mm,-33.5mm)$) rectangle ($(origin)+(202.5mm,-70mm)$);
+  \draw[fill=white,line width=.4pt] ($(origin)+(15.5mm,-31.5mm)$) rectangle ($(origin)+(200.5mm,-68mm)$);
+  \node[font=\bfseries\fontsize{25}{32}\selectfont] at ($(origin)+(108mm,-50mm)$) {\reporttitle};
+  \node[align=center,font=\fontsize{17}{25}\selectfont] at ($(origin)+(108mm,-109mm)$) {千葉工業大学\\情報変革科学部 情報工学科};
+  \draw[rounded corners=4mm,line width=.4pt] ($(origin)+(15.5mm,-200mm)$) rectangle ($(origin)+(202.5mm,-268mm)$);
+  \node[anchor=west,font=\bfseries\fontsize{17}{22}\selectfont] at ($(origin)+(43mm,-226mm)$) {学生番号};
+  \node[font=\bfseries\fontsize{17}{22}\selectfont] at ($(origin)+(121mm,-226mm)$) {\studentnumber};
+  \draw ($(origin)+(73mm,-231mm)$) -- ($(origin)+(166mm,-231mm)$);
+  \node[anchor=west,font=\bfseries\fontsize{17}{22}\selectfont] at ($(origin)+(43mm,-259mm)$) {氏\hspace{15mm}名};
+  \node[font=\bfseries\fontsize{17}{22}\selectfont] at ($(origin)+(121mm,-259mm)$) {\studentname};
+  \draw ($(origin)+(75mm,-264mm)$) -- ($(origin)+(168mm,-264mm)$);
+\end{tikzpicture}
+\null
+\end{titlepage}
+
+\setcounter{page}{1}
+\section{実験の目的}
+\subsection{データ圧縮の必要性}
+ArduinoでニューラルネットワークによるRGB補正を行う際には，学習済みの重みとバイアスを装置内に保存する必要がある．利用できるメモリには限りがあるため，モデルのデータ容量を削減することで，画像データや他の処理に使用できる領域を確保できる．
+
+\subsection{本実験の目的}
+本実験では，RGB補正用ニューラルネットワークの重みに対して枝刈りを行い，残った重みをCSR形式で保存する．圧縮前後のデータ容量，RGB補正精度，推論時間を比較し，補正精度を維持しながら容量を削減できる条件を明らかにする．
+
+対象モデルは，入力層3，隠れ層40・40，出力層3の構成である．特に，隠れ層間の第2層は1,600個の重みを持ち，全重み1,840個の約87\%を占めるため，この層を圧縮対象とする．
+
+\section{実験の理論}
+\subsection{適用する圧縮方式}
+枝刈りとは，ニューラルネットワークの一部の重みを削除する処理である．本実験では，重みの絶対値が閾値$t$未満である場合，その重みを0に置き換える．
+\[
+ w'_{ij}=\begin{cases}
+ 0 & (|w_{ij}|<t)\\
+ w_{ij} & (|w_{ij}|\geq t)
+ \end{cases}
+\]
+絶対値の小さい重みは，個々の積和演算への寄与が小さいと考えられる．ただし，多数の重みを削除した場合には誤差が積み重なる可能性があるため，閾値と補正精度の関係を実験で確認する．
+
+重みを0に置き換えるだけでは，通常の配列では0の保存領域も必要になる．そこで，枝刈り後の行列をCSR（Compressed Sparse Row）形式で保存する．CSR形式では，非ゼロ要素の値，列番号，各行の開始位置を示す3つの配列で行列を表現する\cite{scipy-csr}．各行の重みを順に参照できるため，現在の行単位の推論処理に組み込みやすい．
+
+\subsection{方式の特徴と適用条件}
+CSR形式を使用するために枝刈りは必須ではなく，元から0が多い行列にも適用できる．ただし，今回の第2層の重みには完全に0の要素がないため，そのままCSR形式に変換すると，列番号などの付加情報によって容量が増える．そのため，本実験では枝刈りで0の要素を増やし，CSR形式によってその保存を省く．
+
+本実験では，重みの値に4バイトの\texttt{float}，列番号に1バイトの\texttt{uint8\_t}，行の開始位置に2バイトの\texttt{uint16\_t}を使用する．第2層は40行40列であるため，非ゼロ要素数を$K$とすると，CSR形式の配列容量は次式で求められる．
+\[
+ S_{\mathrm{CSR}}=4K+K+2(40+1)=5K+82\quad\text{バイト}
+\]
+枝刈りを行わずに全1,600個の重みをCSR形式で保存すると，配列容量は8,082バイトとなり，元の通常配列の6,400バイトを上回る．
+
+現在の重みでは，閾値を0.01に設定すると81個の重みが残る．この場合，第2層の容量は6,400バイトから487バイトになる．第1層・第3層の重みと全バイアスを含むパラメータ全体では，7,692バイトから1,779バイトとなり，約77\%の容量削減が見込まれる．これは配列容量の見積もりであり，補正精度と装置全体のメモリ使用量は実験で確認する．
+
+なお，枝刈りでは削除した重みの情報が失われるため，元のモデルを完全には復元できない．一方，CSR形式からは，枝刈り後の行列を復元できる．両者を区別して，枝刈りによる精度への影響と，CSR形式による保存容量の削減を評価する．
+
+\section{実験方法}
+\subsection{プログラムの実装}
+実装にはPythonとArduinoのC++を使用する．Python側では，学習済みの第2層の重みを読み込み，閾値に従って枝刈りした後，非ゼロの重みだけをCSR形式の3配列へ変換する．変換結果はArduinoで読み込めるヘッダーファイルとして出力する．
+
+Arduino側では，第2層の推論処理を変更する．各行の開始位置と終了位置を取得し，その範囲に保存された重みと，対応する入力値の積和を計算する．計算結果にバイアスを加え，現在と同じReLU関数を適用する．推論時には，CSR形式のデータから直接計算する．
+
+\subsection{性能確認方法}
+実験手順は次のとおりとする．
+\begin{enumerate}[label=\arabic*.]
+ \item 圧縮前のモデルについて，パラメータ容量，補正誤差，推論時間を測定する．
+ \item 枝刈りの閾値を0.0001，0.001，0.005，0.01に設定し，それぞれのモデルを作成する．
+ \item 各モデルについて，非ゼロ要素数とCSR形式での保存容量を求める．
+ \item CSR形式から復元した行列が，枝刈り後の行列と一致することを確認する．
+ \item 同じ入力データを用いて，圧縮前後の補正結果と推論時間を比較する．
+ \item 閾値ごとの容量削減と補正誤差の関係から，採用する閾値を決定する．
+\end{enumerate}
+比較条件は，「元のモデル」「枝刈りのみを行った通常配列のモデル」「枝刈り後にCSR形式へ変換したモデル」の3種類とする．これにより，枝刈りの影響と保存形式の影響を分けて確認する．
+
+容量の評価では，重みの値だけでなく，列番号と行の開始位置，圧縮対象外の重みとバイアスも含める．容量削減率は次式で算出する．
+\[
+ \text{容量削減率}=\left(1-\frac{\text{圧縮後の容量}}{\text{圧縮前の容量}}\right)\times100\quad[\%]
+\]
+精度の評価には，学習に使用した色に加えて，学習に使用していない色の測定データを用いる．同一の入力データに対し，正解RGB値との平均二乗誤差（MSE）を求める．また，圧縮前のモデルから出力がどれだけ変化したかを，0〜255のRGB値における平均絶対差と最大絶対差で確認する．
+
+推論時間は，センサーの読み取りやシリアル出力を含めず，\texttt{predict()}の実行時間を測定する．同じ入力データ列を用いて1,000回の推論を5セット行い，1回当たりの平均時間を比較する．
+
+\subsection{方式の選択基準}
+閾値の選択では，補正精度の維持を優先する．暫定的に，圧縮前とのRGB出力差が平均1階調以内，最大5階調以内となる条件を候補とし，正解RGB値とのMSEも確認する．その中でパラメータ容量が最も小さくなる閾値を採用する．速度の改善については実測結果に基づいて判断する．
+
+\begin{thebibliography}{9}
+ \bibitem{scipy-csr} SciPy，\textit{csr\_matrix --- SciPy Manual}，
+ \url{https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csr_matrix.html}（閲覧日：2026年10月9日）．
+\end{thebibliography}
+\end{document}

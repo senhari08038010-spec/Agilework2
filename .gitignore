@@ -1,0 +1,41 @@
+# macOS
+.DS_Store
+._*
+
+# Python environments and caches
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.pytest_cache/
+
+# Local configuration
+.env
+.env.*
+!.env.example
+
+# Build outputs
+*.o
+*.a
+*.so
+*.dylib
+*.exe
+*.elf
+*.hex
+build/
+
+# Course handouts, slides, and duplicate archives
+*.pdf
+*.ppt
+*.pptx
+*.zip
+
+# LaTeX generated files
+*.aux
+*.log
+*.out
+*.toc
+*.synctex.gz
+*.fls
+*.fdb_latexmk
