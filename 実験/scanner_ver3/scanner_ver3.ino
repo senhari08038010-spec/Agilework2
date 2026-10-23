@@ -1,6 +1,11 @@
 #include <Arduino.h>
 #include "model_parameters.h"
 
+// 1: 固定入力の測定モード、0: 元のセンサースキャナー。
+#ifndef MEASUREMENT_MODE
+#define MEASUREMENT_MODE 1
+#endif
+
 // PythonのColorNetと同じ構成: RGB 3 → 40 → 40 → RGB 3
 #define INPUT_SIZE 3
 #define HIDDEN_SIZE1 40
@@ -55,6 +60,14 @@ void predict(const float input[INPUT_SIZE], float output[OUTPUT_SIZE]) {
         }
     }
 }
+
+#if MEASUREMENT_MODE
+#include "measurement.h"
+
+void setup() { measurementSetup(); }
+void loop() { measurementLoop(); }
+
+#else
 
 // RGB点灯遅延
 #define RgbFlashDelay 200 
@@ -276,3 +289,5 @@ void loop() {
     
 }
 
+
+#endif  // MEASUREMENT_MODE
