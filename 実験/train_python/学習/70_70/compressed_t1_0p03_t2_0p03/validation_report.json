@@ -1,0 +1,46 @@
+{
+  "architecture": [
+    3,
+    70,
+    70,
+    3
+  ],
+  "threshold_1": 0.03,
+  "threshold_2": 0.03,
+  "reference": "同じ非圧縮元モデルに閾値0.03を適用したfloat32通常配列",
+  "evaluation_data_sha256": "5eef2e1829cb9283b1987a9f597a55f0fdade69c60c3020cd0c53c24b8f8109b",
+  "results": {
+    "coo": {
+      "inputs": 12,
+      "max_absolute_error": 0,
+      "ppm_component_mismatches": 0,
+      "parameter_bytes": 2078
+    },
+    "csr": {
+      "inputs": 12,
+      "max_absolute_error": 0,
+      "ppm_component_mismatches": 0,
+      "parameter_bytes": 2109
+    }
+  },
+  "physical_measurement_performed": false,
+  "model_source_sha256": "96bf967cfafd9037c5a7ea57f6ec4fe34c01da292988d391ba96f8d6d3cc07a4",
+  "fqbn": "arduino:renesas_uno:unor4wifi",
+  "arduino_cli_version": "1.2.0",
+  "board_core": "arduino:renesas_uno@1.5.1",
+  "arduino_builds": {
+    "coo": {
+      "compile_succeeded": true,
+      "flash_bytes": 57760,
+      "static_ram_bytes": 8852,
+      "active_header_sha256": "1eceda438d28e764a6c56b5bb9ab5f2026e9b225a9592e8945b4f813dddaf9b4"
+    },
+    "csr": {
+      "compile_succeeded": true,
+      "flash_bytes": 57824,
+      "static_ram_bytes": 8884,
+      "active_header_sha256": "eb311fba7a2ab50ae97b379f6e83a0ea5e28815b0188e46c9828ffe27b301afe"
+    }
+  },
+  "validation_note": "PCでの推論一致確認とArduino向けコンパイルのみ。Arduinoへの書き込み・0.03の実機測定は行っていない。"
+}
