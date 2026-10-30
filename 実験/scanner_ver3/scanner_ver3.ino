@@ -8,14 +8,14 @@
 
 // PythonのColorNetと同じ構成: RGB 3 → 40 → 40 → RGB 3
 #define INPUT_SIZE 3
-#define HIDDEN_SIZE1 40
-#define HIDDEN_SIZE2 40
+#define HIDDEN_SIZE1 70
+#define HIDDEN_SIZE2 70         //ここが次元数の変更場所
 #define OUTPUT_SIZE 3
 
 static_assert(sizeof(weight_1) / sizeof(weight_1[0]) == HIDDEN_SIZE1 * INPUT_SIZE,
               "weight_1 size mismatch");
 static_assert(sizeof(bias_1) / sizeof(bias_1[0]) == HIDDEN_SIZE1,
-              "bias_1 size mismatch");
+              "bias_1size mismatch");
 static_assert(sizeof(weight_2) / sizeof(weight_2[0]) == HIDDEN_SIZE2 * HIDDEN_SIZE1,
               "weight_2 size mismatch");
 static_assert(sizeof(bias_2) / sizeof(bias_2[0]) == HIDDEN_SIZE2,

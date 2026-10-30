@@ -1,0 +1,30 @@
+{
+  "saved_at": "2026-10-30T07:17:09.133200+00:00",
+  "architecture": [
+    3,
+    70,
+    70,
+    3
+  ],
+  "threshold_1": 0.01,
+  "threshold_2": 0.01,
+  "measurement_completed": "ユーザー報告：70次元のCOO・CSR測定を完了",
+  "model_source_sha256": "96bf967cfafd9037c5a7ea57f6ec4fe34c01da292988d391ba96f8d6d3cc07a4",
+  "parameter_bytes": {
+    "coo": 2120,
+    "csr": 2144
+  },
+  "files_sha256": {
+    "実験/train_python/学習/70_70/model_parameters.h": "96bf967cfafd9037c5a7ea57f6ec4fe34c01da292988d391ba96f8d6d3cc07a4",
+    "実験/scanner_coo/model_parameters.h": "d389fc55dd1f305d16e3ddfa7b929383a20dcd86dd9327954f5765c736cd36e8",
+    "実験/scanner_csr/model_parameters.h": "a291d3a2869375ecf9cb17779f9834c590ffd7eef833e02fb4329b3f51df4cbc",
+    "実験/scanner_coo/evaluation_data.h": "5eef2e1829cb9283b1987a9f597a55f0fdade69c60c3020cd0c53c24b8f8109b",
+    "実験/scanner_csr/evaluation_data.h": "5eef2e1829cb9283b1987a9f597a55f0fdade69c60c3020cd0c53c24b8f8109b",
+    "実験/train_python/学習/70_70/compressed_t1_0p01_t2_0p01/coo/coo_70.ppm": "ca1c2461e5424fd8ef77310af56b88a14b46467636a1f36b700a2cc4f5a6ba09",
+    "実験/train_python/学習/70_70/compressed_t1_0p01_t2_0p01/csr/csr_70.ppm": "ca1c2461e5424fd8ef77310af56b88a14b46467636a1f36b700a2cc4f5a6ba09"
+  },
+  "workbook_original": "/Users/sensui/Documents/agilework2/outputs/01a16723-9148-7903-bf48-1dcddd5a209e/実験結果.xlsx",
+  "workbook_sha256": "6cd35a3911957cf362d586f1bab8a4be8ea44302856176d5d3033fbb0a7f834d",
+  "workbook_note": "Excelのディスク保存済み版を内容変更せず複製。保存済み版には70次元COO・CSRの測定数値が見当たらないため、MSE・時間の数値を追加していない。",
+  "physical_measurement_performed_by_assistant": false
+}
