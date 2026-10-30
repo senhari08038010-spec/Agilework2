@@ -1,0 +1,13 @@
+{
+  "architecture": [
+    3,
+    100,
+    100,
+    3
+  ],
+  "all_six_exported_arrays_match_checkpoint_float32": true,
+  "training_inputs_match_notebook": true,
+  "training_targets_match_notebook": true,
+  "target_first_9_pixels_match_reference_ppm": true,
+  "physical_measurement_performed": false
+}

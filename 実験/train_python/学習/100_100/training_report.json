@@ -1,0 +1,60 @@
+{
+  "created_at": "2026-10-30T08:13:48.174084+00:00",
+  "architecture": [
+    3,
+    100,
+    100,
+    3
+  ],
+  "samples": 33,
+  "optimizer": "Adam",
+  "learning_rate": 0.01,
+  "epochs": 50000,
+  "lambda_l1": 1e-06,
+  "l1_targets": "all Linear weights, excluding biases",
+  "seed": 42,
+  "seed_note": "既存ノートブックはシード未指定。今回は再現用に42を指定した。",
+  "device": "cpu",
+  "dtype": "float32",
+  "num_threads": 1,
+  "deterministic_algorithms": true,
+  "training_duration_seconds": 11.640112250002858,
+  "final_training_mse_normalized": 3.196021498297341e-05,
+  "final_weight_l1": 97.2239875793457,
+  "final_training_loss": 0.0001291842025623191,
+  "parameter_count": 10803,
+  "dense_parameter_bytes": 43212,
+  "versions": {
+    "python": "3.12.11",
+    "torch": "2.15.0",
+    "numpy": "2.4.6",
+    "opencv": "5.0.0"
+  },
+  "sources": {
+    "notebook": {
+      "path_from_train_python": "train_L1_normalization.ipynb",
+      "sha256": "f3bb8e4cd1648cde880161eb8d4d96557d70a831d2a6278420926733f196cafb"
+    },
+    "input_3x3": {
+      "path_from_train_python": "../scanner_ver2/before_1669_59.ppm",
+      "sha256": "6bd1718ec448ed6760ba9886acc862f1be3a46be88380c4159f3203632de5da2"
+    },
+    "input_6x6": {
+      "path_from_train_python": "week3_6_6.ppm",
+      "sha256": "2edd5e21ca9ee1bf17645ca57057318cf20c27e59c439132af48e1f754c00ffa"
+    },
+    "target_3x3": {
+      "path_from_train_python": "img/reference_image1_cmyk_large.png",
+      "sha256": "3d9c0af643791e2876be390ac73e96c290a29ae760423dbf07ebea23d5d71537"
+    },
+    "target_6x4": {
+      "path_from_train_python": "img/reference_image2_cmyk_large.png",
+      "sha256": "e64dfbcb229414ba9bf5a769d00c97235a1c7e933fcba402d3cf6d8301339536"
+    }
+  },
+  "training_script_sha256": "7ada7d65fd4d66dbbdaf97697aa0b01439f1731cb383cdd86912aa410567849b",
+  "training_data_sha256": "47f1b264cd3a77e84e30f38ca05d8c2dffdeaa00e743b600e4bc4b785d515d4b",
+  "source_header_sha256": "1652d72a554967bfbdbdc0cf42f8e504ac472ab81aed64448048eb453df0b5dd",
+  "note": "学習33画素に対するMSE。固定評価9画素の実機MSE・実機推論時間ではない。以後の閾値比較には同じ元モデルを使う。",
+  "physical_measurement_performed": false
+}
