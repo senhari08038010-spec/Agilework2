@@ -1,0 +1,34 @@
+{
+  "architecture": [
+    3,
+    100,
+    100,
+    3
+  ],
+  "training_pixels": 33,
+  "epochs": 50000,
+  "optimizer": "Adam",
+  "learning_rate": 0.01,
+  "lambda_l1": 1e-06,
+  "seed": 0,
+  "cpu_threads": 1,
+  "deterministic_algorithms": true,
+  "training_mse_normalized_rgb": 3.667567170850816e-06,
+  "source_notebook": "/Users/sensui/Documents/2_2S/アジャイル２/実験/train_python/train_L1_normalization.ipynb",
+  "source_notebook_sha256": "f3bb8e4cd1648cde880161eb8d4d96557d70a831d2a6278420926733f196cafb",
+  "training_data_sha256": {
+    "scanner_ver2/before_1669_59.ppm": "6bd1718ec448ed6760ba9886acc862f1be3a46be88380c4159f3203632de5da2",
+    "train_python/week3_6_6.ppm": "2edd5e21ca9ee1bf17645ca57057318cf20c27e59c439132af48e1f754c00ffa",
+    "train_python/img/reference_image1_cmyk_large.png": "3d9c0af643791e2876be390ac73e96c290a29ae760423dbf07ebea23d5d71537",
+    "train_python/img/reference_image2_cmyk_large.png": "e64dfbcb229414ba9bf5a769d00c97235a1c7e933fcba402d3cf6d8301339536"
+  },
+  "model_header_sha256": "0e4f6f3cd21232c814ee1d9aacd28083442a641be7af672db607873cfe9becc9",
+  "environment": {
+    "python": "3.12.11",
+    "torch": "2.15.0",
+    "numpy": "2.4.6",
+    "cv2": "5.0.0",
+    "matplotlib": "3.11.0"
+  },
+  "physical_measurement_performed": false
+}

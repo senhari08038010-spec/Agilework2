@@ -1,0 +1,48 @@
+{
+  "architecture": [
+    3,
+    100,
+    100,
+    3
+  ],
+  "threshold_1": 0.005,
+  "threshold_2": 0.005,
+  "reference": "同じ非圧縮元モデルに閾値0.005を適用したfloat32通常配列",
+  "evaluation_data_sha256": "5eef2e1829cb9283b1987a9f597a55f0fdade69c60c3020cd0c53c24b8f8109b",
+  "results": {
+    "coo": {
+      "inputs": 12,
+      "max_absolute_error": 0,
+      "ppm_component_mismatches": 0,
+      "parameter_bytes": 2984
+    },
+    "csr": {
+      "inputs": 12,
+      "max_absolute_error": 0,
+      "ppm_component_mismatches": 0,
+      "parameter_bytes": 3024
+    }
+  },
+  "physical_measurement_performed": false,
+  "model_state_and_exported_header_match_float32": true,
+  "model_source_sha256": "0e4f6f3cd21232c814ee1d9aacd28083442a641be7af672db607873cfe9becc9",
+  "arduino_fqbn": "arduino:renesas_uno:unor4wifi",
+  "arduino_core_version": "1.5.1",
+  "arduino_builds": {
+    "coo": {
+      "success": true,
+      "flash_bytes": 58680,
+      "static_ram_bytes": 9756,
+      "sketch_folder": "scanner_coo_100",
+      "model_header_sha256": "f0deb0effbd4eb263fbec65fb915ce1fd31a0d2dbfd41cb8458163e184ed7587"
+    },
+    "csr": {
+      "success": true,
+      "flash_bytes": 58756,
+      "static_ram_bytes": 9800,
+      "sketch_folder": "scanner_csr_100",
+      "model_header_sha256": "a03ea8f3fab978afc86a0982792bc7e458298cbd4cf2e2f4af03062b9fc6e6c3"
+    }
+  },
+  "notes": "PCで固定入力9画素＋追加3入力を照合。両形式で通常配列による枝刈り後モデルとfloat出力・PPM成分が一致。Arduinoへの書き込みや実機測定は行っていない。"
+}
