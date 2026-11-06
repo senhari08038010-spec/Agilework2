@@ -1,0 +1,4 @@
+['/Applications/Arduino IDE.app/Contents/Resources/app/lib/backend/resources/arduino-cli', 'upload', '--fqbn', 'arduino:renesas_uno:unor4wifi', '--port', '/dev/cu.usbmodem34B7DA643A8C2', '--input-dir', PosixPath('/tmp/agilework2-400-cocoo-2026-11-06_161333_JST-build'), PosixPath('/Users/sensui/Documents/2_2S/アジャイル２/実験/scanner_coo_400')] failed (1)
+No device found on cu.usbmodem34B7DA643A8C2
+Failed uploading: uploading error: exit status 1
+
