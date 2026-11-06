@@ -6,3 +6,4 @@ threshold,format,parameter_bytes,compression_ratio_percent,mean_inference_us,mse
 0.02,coo,2744,6.350088,192.3334,83.37037037037037,58448,9516,2026-11-06_145112_JST,train_python/学習/100_100/compressed_t1_0p02_t2_0p02/measurements/2026-11-06_145112_JST/README.md
 0.02,csr,2824,6.535222,206.023,83.37037037037037,58564,9600,2026-11-06_145112_JST,train_python/学習/100_100/compressed_t1_0p02_t2_0p02/measurements/2026-11-06_145112_JST/README.md
 0.03,coo,2702,6.252893,189.779,88.48148148148148,58408,9476,2026-11-06_145112_JST,train_python/学習/100_100/compressed_t1_0p03_t2_0p03/measurements/2026-11-06_145112_JST/README.md
+0.03,csr,2789,6.454226,203.934,88.48148148148148,58528,9564,2026-11-06_145112_JST,train_python/学習/100_100/compressed_t1_0p03_t2_0p03/measurements/2026-11-06_145112_JST/README.md
