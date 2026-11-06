@@ -1,0 +1,4 @@
+threshold,format,status,parameter_bytes,compression_ratio_percent,mse_rgb_0_255,mean_inference_us,flash_bytes,static_ram_bytes,report
+0.02,coo,measured,14813,0.747221,38.03703703703704,1054.3992,70552,21588,train_python/学習/700_700/compressed_t1_0p02_t2_0p02/measurements/2026-11-06_165736_JST/README.md
+0.02,csr,measured,16003,0.807249,38.03703703703704,1175.9366,71756,22776,train_python/学習/700_700/compressed_t1_0p02_t2_0p02/measurements/2026-11-06_165736_JST/README.md
+0.03,coo,measured,14783,0.745708,42.851851851851855,1052.7772,70520,21556,train_python/学習/700_700/compressed_t1_0p03_t2_0p03/measurements/2026-11-06_172111_JST/README.md

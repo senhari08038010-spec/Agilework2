@@ -1,0 +1,6 @@
+{
+  "static_ram_bytes": 21556,
+  "predict_stack_frame_bytes": 5624,
+  "required_lower_bound_bytes": 27180,
+  "available_sram_bytes": 32768
+}
