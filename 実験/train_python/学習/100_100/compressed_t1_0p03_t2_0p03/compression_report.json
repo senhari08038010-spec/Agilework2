@@ -1,0 +1,206 @@
+{
+  "created_at": "2026-11-06T05:52:50.090555+00:00",
+  "source_header": "/Users/sensui/Documents/2_2S/アジャイル２/実験/train_python/学習/100_100/model_parameters.h",
+  "source_sha256": "0e4f6f3cd21232c814ee1d9aacd28083442a641be7af672db607873cfe9becc9",
+  "architecture": [
+    3,
+    100,
+    100,
+    3
+  ],
+  "float_bytes": 4,
+  "pruning_rule": "abs(weight) < threshold -> 0; equality is retained",
+  "compressed_parameters": [
+    "weight_1",
+    "weight_2"
+  ],
+  "unchanged_parameters": [
+    "bias_1",
+    "bias_2",
+    "weight_3",
+    "bias_3"
+  ],
+  "dense_parameter_bytes": 43212,
+  "layers": [
+    {
+      "rows": 100,
+      "cols": 3,
+      "threshold": 0.03,
+      "total_elements": 300,
+      "original_nonzero_elements": 300,
+      "nonzero_elements": 43,
+      "pruned_nonzero_elements": 257,
+      "zero_fraction_after_pruning": 0.8566666666666667,
+      "coo_reconstruction_matches": true,
+      "csr_reconstruction_matches": true
+    },
+    {
+      "rows": 100,
+      "cols": 100,
+      "threshold": 0.03,
+      "total_elements": 10000,
+      "original_nonzero_elements": 10000,
+      "nonzero_elements": 72,
+      "pruned_nonzero_elements": 9928,
+      "zero_fraction_after_pruning": 0.9928,
+      "coo_reconstruction_matches": true,
+      "csr_reconstruction_matches": true
+    }
+  ],
+  "formats": {
+    "coo": {
+      "parameter_bytes": 2702,
+      "compression_ratio_percent": 6.252892714986578,
+      "arrays": {
+        "weight_1_values": {
+          "type": "float",
+          "logical_elements": 43,
+          "stored_elements": 43,
+          "element_bytes": 4,
+          "bytes": 172
+        },
+        "weight_1_rows": {
+          "type": "uint8_t",
+          "logical_elements": 43,
+          "stored_elements": 43,
+          "element_bytes": 1,
+          "bytes": 43
+        },
+        "weight_1_cols": {
+          "type": "uint8_t",
+          "logical_elements": 43,
+          "stored_elements": 43,
+          "element_bytes": 1,
+          "bytes": 43
+        },
+        "bias_1": {
+          "type": "float",
+          "logical_elements": 100,
+          "stored_elements": 100,
+          "element_bytes": 4,
+          "bytes": 400
+        },
+        "weight_2_values": {
+          "type": "float",
+          "logical_elements": 72,
+          "stored_elements": 72,
+          "element_bytes": 4,
+          "bytes": 288
+        },
+        "weight_2_rows": {
+          "type": "uint8_t",
+          "logical_elements": 72,
+          "stored_elements": 72,
+          "element_bytes": 1,
+          "bytes": 72
+        },
+        "weight_2_cols": {
+          "type": "uint8_t",
+          "logical_elements": 72,
+          "stored_elements": 72,
+          "element_bytes": 1,
+          "bytes": 72
+        },
+        "bias_2": {
+          "type": "float",
+          "logical_elements": 100,
+          "stored_elements": 100,
+          "element_bytes": 4,
+          "bytes": 400
+        },
+        "weight_3": {
+          "type": "float",
+          "logical_elements": 300,
+          "stored_elements": 300,
+          "element_bytes": 4,
+          "bytes": 1200
+        },
+        "bias_3": {
+          "type": "float",
+          "logical_elements": 3,
+          "stored_elements": 3,
+          "element_bytes": 4,
+          "bytes": 12
+        }
+      }
+    },
+    "csr": {
+      "parameter_bytes": 2789,
+      "compression_ratio_percent": 6.454225678052393,
+      "arrays": {
+        "weight_1_values": {
+          "type": "float",
+          "logical_elements": 43,
+          "stored_elements": 43,
+          "element_bytes": 4,
+          "bytes": 172
+        },
+        "weight_1_cols": {
+          "type": "uint8_t",
+          "logical_elements": 43,
+          "stored_elements": 43,
+          "element_bytes": 1,
+          "bytes": 43
+        },
+        "weight_1_row_ptr": {
+          "type": "uint8_t",
+          "logical_elements": 101,
+          "stored_elements": 101,
+          "element_bytes": 1,
+          "bytes": 101
+        },
+        "bias_1": {
+          "type": "float",
+          "logical_elements": 100,
+          "stored_elements": 100,
+          "element_bytes": 4,
+          "bytes": 400
+        },
+        "weight_2_values": {
+          "type": "float",
+          "logical_elements": 72,
+          "stored_elements": 72,
+          "element_bytes": 4,
+          "bytes": 288
+        },
+        "weight_2_cols": {
+          "type": "uint8_t",
+          "logical_elements": 72,
+          "stored_elements": 72,
+          "element_bytes": 1,
+          "bytes": 72
+        },
+        "weight_2_row_ptr": {
+          "type": "uint8_t",
+          "logical_elements": 101,
+          "stored_elements": 101,
+          "element_bytes": 1,
+          "bytes": 101
+        },
+        "bias_2": {
+          "type": "float",
+          "logical_elements": 100,
+          "stored_elements": 100,
+          "element_bytes": 4,
+          "bytes": 400
+        },
+        "weight_3": {
+          "type": "float",
+          "logical_elements": 300,
+          "stored_elements": 300,
+          "element_bytes": 4,
+          "bytes": 1200
+        },
+        "bias_3": {
+          "type": "float",
+          "logical_elements": 3,
+          "stored_elements": 3,
+          "element_bytes": 4,
+          "bytes": 12
+        }
+      }
+    }
+  },
+  "zero_nnz_note": "Zero-NNZ data arrays use one dummy element; its sizeof is included.",
+  "arduino_measurement_performed": false
+}
