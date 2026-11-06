@@ -1,2 +1,3 @@
 format,dimension,threshold,parameter_bytes,dense_parameter_bytes,compression_ratio_percent,mean_inference_us,mse_rgb_0_255,flash_bytes,static_ram_bytes
 coo,200,0.02,4738,166412,2.847150,336.1394,94.88888888888889,60460,11512
+csr,200,0.02,5019,166412,3.016008,370.773,94.88888888888889,60756,11792
