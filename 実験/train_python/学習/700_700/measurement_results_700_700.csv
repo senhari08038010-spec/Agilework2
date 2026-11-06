@@ -4,3 +4,4 @@ threshold,format,status,parameter_bytes,compression_ratio_percent,mse_rgb_0_255,
 0.03,coo,measured,14783,0.745708,42.851851851851855,1052.7772,70520,21556,train_python/学習/700_700/compressed_t1_0p03_t2_0p03/measurements/2026-11-06_172111_JST/README.md
 0.03,csr,measured,15981,0.806139,42.851851851851855,1174.7216,71744,22756,train_python/学習/700_700/compressed_t1_0p03_t2_0p03/measurements/2026-11-06_172111_JST/README.md
 0.01,coo,measured,14861,0.749642,38.48148148148148,1056.7886,70600,21636,train_python/学習/700_700/compressed_t1_0p01_t2_0p01/measurements/2026-11-06_172111_JST/README.md
+0.01,csr,measured,16039,0.809065,38.48148148148148,1177.5686,71792,22812,train_python/学習/700_700/compressed_t1_0p01_t2_0p01/measurements/2026-11-06_172111_JST/README.md
