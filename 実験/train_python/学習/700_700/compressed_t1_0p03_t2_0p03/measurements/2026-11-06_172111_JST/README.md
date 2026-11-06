@@ -5,6 +5,7 @@
 | 形式 | 容量 B | 圧縮率 % | MSE | 平均推論 µs | フラッシュ B | 静的RAM B |
 |---|---:|---:|---:|---:|---:|---:|
 | COO | 14783 | 0.745708 | 42.85185185 | 1052.7772 | 70520 | 21556 |
+| CSR | 15981 | 0.806139 | 42.85185185 | 1174.7216 | 71744 | 22756 |
 
-COO・CSRのPPM一致：残る方式の測定後に確認。
+COO・CSRのPPM一致：True。
 各方式フォルダのserial_info.txtはi応答、serial_measurement.txtはrの生ログ、PPMは実機出力、measurement.jsonは条件・ハッシュ・5セットの時間。arduino_build.txt・arduino_upload.txtは実行ログ、memory_budget.jsonと.suは静的RAM・スタック確認記録。MSEはRGB 0～255の27成分の二乗誤差の平均。フラッシュ・静的RAMはビルド値で、ピークRAMではない。平均時間には共通の集計処理を含む。

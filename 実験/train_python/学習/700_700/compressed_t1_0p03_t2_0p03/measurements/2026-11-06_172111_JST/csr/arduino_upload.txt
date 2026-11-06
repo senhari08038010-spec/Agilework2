@@ -1,0 +1,70 @@
+Set binary mode
+version()=Arduino Bootloader (SAM-BA extended) 2.0 [Arduino:IKXYZ]
+Connected at 921600 baud
+identifyChip()=nRF52840-QIAA
+write(addr=0,size=0x34)
+writeWord(addr=0x30,value=0x400)
+writeWord(addr=0x20,value=0)
+Erase flash
+chipErase(addr=0)
+
+Done in 0.001 seconds
+Write 71752 bytes to flash (18 pages)
+
+[                              ] 0% (0/18 pages)write(addr=0x34,size=0x1000)
+writeBuffer(scr_addr=0x34, dst_addr=0, size=0x1000)
+
+[=                             ] 5% (1/18 pages)write(addr=0x34,size=0x1000)
+writeBuffer(scr_addr=0x34, dst_addr=0x1000, size=0x1000)
+
+[===                           ] 11% (2/18 pages)write(addr=0x34,size=0x1000)
+writeBuffer(scr_addr=0x34, dst_addr=0x2000, size=0x1000)
+
+[=====                         ] 16% (3/18 pages)write(addr=0x34,size=0x1000)
+writeBuffer(scr_addr=0x34, dst_addr=0x3000, size=0x1000)
+
+[======                        ] 22% (4/18 pages)write(addr=0x34,size=0x1000)
+writeBuffer(scr_addr=0x34, dst_addr=0x4000, size=0x1000)
+
+[========                      ] 27% (5/18 pages)write(addr=0x34,size=0x1000)
+writeBuffer(scr_addr=0x34, dst_addr=0x5000, size=0x1000)
+
+[==========                    ] 33% (6/18 pages)write(addr=0x34,size=0x1000)
+writeBuffer(scr_addr=0x34, dst_addr=0x6000, size=0x1000)
+
+[===========                   ] 38% (7/18 pages)write(addr=0x34,size=0x1000)
+writeBuffer(scr_addr=0x34, dst_addr=0x7000, size=0x1000)
+
+[=============                 ] 44% (8/18 pages)write(addr=0x34,size=0x1000)
+writeBuffer(scr_addr=0x34, dst_addr=0x8000, size=0x1000)
+
+[===============               ] 50% (9/18 pages)write(addr=0x34,size=0x1000)
+writeBuffer(scr_addr=0x34, dst_addr=0x9000, size=0x1000)
+
+[================              ] 55% (10/18 pages)write(addr=0x34,size=0x1000)
+writeBuffer(scr_addr=0x34, dst_addr=0xa000, size=0x1000)
+
+[==================            ] 61% (11/18 pages)write(addr=0x34,size=0x1000)
+writeBuffer(scr_addr=0x34, dst_addr=0xb000, size=0x1000)
+
+[====================          ] 66% (12/18 pages)write(addr=0x34,size=0x1000)
+writeBuffer(scr_addr=0x34, dst_addr=0xc000, size=0x1000)
+
+[=====================         ] 72% (13/18 pages)write(addr=0x34,size=0x1000)
+writeBuffer(scr_addr=0x34, dst_addr=0xd000, size=0x1000)
+
+[=======================       ] 77% (14/18 pages)write(addr=0x34,size=0x1000)
+writeBuffer(scr_addr=0x34, dst_addr=0xe000, size=0x1000)
+
+[=========================     ] 83% (15/18 pages)write(addr=0x34,size=0x1000)
+writeBuffer(scr_addr=0x34, dst_addr=0xf000, size=0x1000)
+
+[==========================    ] 88% (16/18 pages)write(addr=0x34,size=0x1000)
+writeBuffer(scr_addr=0x34, dst_addr=0x10000, size=0x1000)
+
+[============================  ] 94% (17/18 pages)write(addr=0x34,size=0x1000)
+writeBuffer(scr_addr=0x34, dst_addr=0x11000, size=0x1000)
+
+[==============================] 100% (18/18 pages)
+Done in 4.451 seconds
+reset()
