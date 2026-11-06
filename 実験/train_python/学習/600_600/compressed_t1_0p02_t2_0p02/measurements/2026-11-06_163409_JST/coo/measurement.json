@@ -1,0 +1,92 @@
+{
+  "physical_measurement_performed": true,
+  "measurement_complete": true,
+  "measured_at": "2026-11-06T16:35:39.232490+09:00",
+  "architecture": [
+    3,
+    600,
+    600,
+    3
+  ],
+  "threshold": 0.02,
+  "format": "coo",
+  "info": {
+    "hidden_size1": "600",
+    "hidden_size2": "600",
+    "storage": "coo",
+    "compressed_layers": "1,2",
+    "pruning_threshold_1": "0.020000000000",
+    "pruning_threshold_2": "0.020000000000",
+    "weight_1_nnz": "45",
+    "weight_2_nnz": "73",
+    "model_source_sha256": "93571d96b8e6b553243eee39796b133ffcf0075f120466d6420d715df3896331",
+    "float_bytes": "4",
+    "parameter_bytes": "12911",
+    "dense_parameter_bytes": "1459212",
+    "compression_ratio_percent": "0.884793",
+    "evaluation_input_bytes": "108",
+    "image_buffer_bytes": "27",
+    "predict_intermediate_arrays_bytes": "4800",
+    "evaluation_width": "3",
+    "evaluation_height": "3",
+    "evaluation_pixels": "9",
+    "evaluation_source_sha256": "aef4bbf02c893cd55ca2faee519486b27311c804276259ba551d7c5a0714b562",
+    "input_order": "row_major_RGB_normalized_by_255",
+    "output_conversion": "clip_0_255_then_truncate",
+    "warmup_count": "100",
+    "inferences_per_set": "1000",
+    "measurement_sets": "5"
+  },
+  "sets": [
+    {
+      "set": 1,
+      "elapsed_us": 915090,
+      "us_per_inference": 915.090027,
+      "checksum": 1517.858643
+    },
+    {
+      "set": 2,
+      "elapsed_us": 915090,
+      "us_per_inference": 915.090027,
+      "checksum": 1517.858643
+    },
+    {
+      "set": 3,
+      "elapsed_us": 915089,
+      "us_per_inference": 915.088989,
+      "checksum": 1517.858643
+    },
+    {
+      "set": 4,
+      "elapsed_us": 915088,
+      "us_per_inference": 915.088013,
+      "checksum": 1517.858643
+    },
+    {
+      "set": 5,
+      "elapsed_us": 915092,
+      "us_per_inference": 915.09198,
+      "checksum": 1517.858643
+    }
+  ],
+  "mean_inference_us": 915.0898,
+  "mse_rgb_0_255": 103.18518518518519,
+  "reference_path": "/Users/sensui/Documents/2_2S/アジャイル２/実験/MSE測定/reference_3x3.ppm",
+  "reference_sha256": "4f58e236c2e114ed64e6e4128b94265ea66de1ee23413a7ef8b6a3c999f2ff14",
+  "model_header_sha256": "42a83aabc69af9a53560eb8ac69bc8782e86ebb935b6acc7772af83366715a21",
+  "evaluation_data_sha256": "5eef2e1829cb9283b1987a9f597a55f0fdade69c60c3020cd0c53c24b8f8109b",
+  "measurement_header_sha256": "535e821378d403afd342813e75ef6ece31b431eb02a5afdd4d4a955f2b531132",
+  "pre_measurement_commit": "605c8704df461ecb373a15b8e1f2c9f384bf2170",
+  "preparation_commit": "f5b2ae7447dd995c2b6deb9fa46369df8883eb8e",
+  "port": "/dev/cu.usbmodem34B7DA643A8C2",
+  "board": "Arduino UNO R4 WiFi",
+  "fqbn": "arduino:renesas_uno:unor4wifi",
+  "core_version": "1.5.1",
+  "build": {
+    "success": true,
+    "flash_bytes": 68648,
+    "static_ram_bytes": 19684,
+    "upload_success": true
+  },
+  "physical_ppm_matches_pc": true
+}
