@@ -1,0 +1,3 @@
+storage,hidden_size1,hidden_size2,threshold_1,threshold_2,parameter_bytes,dense_parameter_bytes,compression_ratio_percent,mean_inference_us,mse_rgb_0_255,flash_bytes,static_ram_bytes
+coo,100,100,0.005,0.005,2984,43212,6.905489,206.5386,91.77777777777777,58672,9756
+csr,100,100,0.005,0.005,3024,43212,6.998056,217.722,91.77777777777777,58748,9800

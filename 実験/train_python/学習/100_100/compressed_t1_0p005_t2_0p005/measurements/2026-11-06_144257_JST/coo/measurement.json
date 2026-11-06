@@ -1,0 +1,86 @@
+{
+  "measured_at": "2026-11-06T14:43:12.173739+09:00",
+  "physical_measurement_performed": true,
+  "port": "/dev/cu.usbmodem34B7DA643A8C2",
+  "board": "Arduino UNO R4 WiFi",
+  "fqbn": "arduino:renesas_uno:unor4wifi",
+  "core_version": "1.5.1",
+  "info": {
+    "hidden_size1": "100",
+    "hidden_size2": "100",
+    "storage": "coo",
+    "compressed_layers": "1,2",
+    "pruning_threshold_1": "0.005000000000",
+    "pruning_threshold_2": "0.005000000000",
+    "weight_1_nnz": "44",
+    "weight_2_nnz": "118",
+    "model_source_sha256": "0e4f6f3cd21232c814ee1d9aacd28083442a641be7af672db607873cfe9becc9",
+    "float_bytes": "4",
+    "parameter_bytes": "2984",
+    "dense_parameter_bytes": "43212",
+    "compression_ratio_percent": "6.905489",
+    "evaluation_input_bytes": "108",
+    "image_buffer_bytes": "27",
+    "predict_intermediate_arrays_bytes": "800",
+    "evaluation_width": "3",
+    "evaluation_height": "3",
+    "evaluation_pixels": "9",
+    "evaluation_source_sha256": "aef4bbf02c893cd55ca2faee519486b27311c804276259ba551d7c5a0714b562",
+    "input_order": "row_major_RGB_normalized_by_255",
+    "output_conversion": "clip_0_255_then_truncate",
+    "warmup_count": "100",
+    "inferences_per_set": "1000",
+    "measurement_sets": "5"
+  },
+  "sets": [
+    {
+      "set": 1,
+      "elapsed_us": 206537,
+      "us_per_inference": 206.537003,
+      "checksum": 1506.500732
+    },
+    {
+      "set": 2,
+      "elapsed_us": 206539,
+      "us_per_inference": 206.539001,
+      "checksum": 1506.500732
+    },
+    {
+      "set": 3,
+      "elapsed_us": 206537,
+      "us_per_inference": 206.537003,
+      "checksum": 1506.500732
+    },
+    {
+      "set": 4,
+      "elapsed_us": 206540,
+      "us_per_inference": 206.539993,
+      "checksum": 1506.500732
+    },
+    {
+      "set": 5,
+      "elapsed_us": 206540,
+      "us_per_inference": 206.539993,
+      "checksum": 1506.500732
+    }
+  ],
+  "mean_inference_us": 206.5386,
+  "mse_rgb_0_255": 91.77777777777777,
+  "reference_path": "/Users/sensui/Documents/2_2S/アジャイル２/実験/MSE測定/reference_3x3.ppm",
+  "reference_sha256": "4f58e236c2e114ed64e6e4128b94265ea66de1ee23413a7ef8b6a3c999f2ff14",
+  "model_header_sha256": "f0deb0effbd4eb263fbec65fb915ce1fd31a0d2dbfd41cb8458163e184ed7587",
+  "evaluation_data_sha256": "5eef2e1829cb9283b1987a9f597a55f0fdade69c60c3020cd0c53c24b8f8109b",
+  "measurement_header_sha256": "535e821378d403afd342813e75ef6ece31b431eb02a5afdd4d4a955f2b531132",
+  "ppm_component_differences_from_existing": 25,
+  "build": {
+    "success": true,
+    "flash_bytes": 58672,
+    "static_ram_bytes": 9756,
+    "maximum_flash_bytes": 262144,
+    "maximum_ram_bytes": 32768,
+    "upload_success": true,
+    "sketch_folder": "scanner_coo_100",
+    "build_path": "/tmp/agilework2-100-measure-coo-build"
+  },
+  "measurement_complete": true
+}
