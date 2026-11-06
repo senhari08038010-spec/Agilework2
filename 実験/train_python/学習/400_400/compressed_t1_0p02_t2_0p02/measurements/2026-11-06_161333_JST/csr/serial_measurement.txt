@@ -1,0 +1,44 @@
+MEASUREMENT_INFO_BEGIN
+hidden_size1=400
+hidden_size2=400
+storage=csr
+compressed_layers=1,2
+pruning_threshold_1=0.020000000000
+pruning_threshold_2=0.020000000000
+weight_1_nnz=62
+weight_2_nnz=79
+model_source_sha256=2ebf5229e6e78b83669ec3f926f8e0e0ca60a3e7f65619a078006c45e6a58137
+float_bytes=4
+parameter_bytes=9598
+dense_parameter_bytes=652812
+compression_ratio_percent=1.470255
+evaluation_input_bytes=108
+image_buffer_bytes=27
+predict_intermediate_arrays_bytes=3200
+evaluation_width=3
+evaluation_height=3
+evaluation_pixels=9
+evaluation_source_sha256=aef4bbf02c893cd55ca2faee519486b27311c804276259ba551d7c5a0714b562
+input_order=row_major_RGB_normalized_by_255
+output_conversion=clip_0_255_then_truncate
+warmup_count=100
+inferences_per_set=1000
+measurement_sets=5
+MEASUREMENT_INFO_END
+warmup_checksum=153.259933
+set,elapsed_us,us_per_inference,checksum
+1,697766,697.765991,1534.789062
+2,697764,697.763977,1534.789062
+3,697766,697.765991,1534.789062
+4,697767,697.767029,1534.789062
+5,697765,697.765015,1534.789062
+mean_inference_us=697.765625
+PPM_BEGIN
+P3
+3 3
+255
+255 26 31 102 181 73 47 79 159 
+236 221 25 114 206 223 174 83 159 
+2 1 0 123 130 123 240 245 238 
+PPM_END
+MEASUREMENT_COMPLETE
