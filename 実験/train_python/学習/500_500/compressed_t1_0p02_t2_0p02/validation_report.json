@@ -1,0 +1,30 @@
+{
+  "architecture": [
+    3,
+    500,
+    500,
+    3
+  ],
+  "threshold_1": 0.02,
+  "threshold_2": 0.02,
+  "model_source_sha256": "02b938f646eb1f6aa5f44e5cacd08d2446512847e00a12f7ab3ec2bfa9abd654",
+  "model_state_and_exported_header_match_float32": true,
+  "training_data_equal_to_100_100": true,
+  "evaluation_data_sha256": "5eef2e1829cb9283b1987a9f597a55f0fdade69c60c3020cd0c53c24b8f8109b",
+  "reference": "枝刈り後のfloat32通常配列を順に積和。各形式の実際のC++推論関数と照合。",
+  "results": {
+    "coo": {
+      "inputs": 12,
+      "max_absolute_error": 0.0,
+      "ppm_component_mismatches": 0,
+      "parameter_bytes": 10832
+    },
+    "csr": {
+      "inputs": 12,
+      "max_absolute_error": 0.0,
+      "ppm_component_mismatches": 0,
+      "parameter_bytes": 11616
+    }
+  },
+  "physical_measurement_performed": false
+}
