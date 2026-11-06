@@ -8,4 +8,4 @@
 
 ## 実機測定記録
 
-[結果・生ログ](compressed_t1_0p02_t2_0p02/measurements/2026-11-06_165736_JST/README.md)。測定済み：coo。
+[結果・生ログ](compressed_t1_0p02_t2_0p02/measurements/2026-11-06_165736_JST/README.md)。測定済み：coo, csr。
