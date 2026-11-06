@@ -1,0 +1,6 @@
+
+Used platform       Version Path
+arduino:renesas_uno 1.5.1   /Users/sensui/Library/Arduino15/packages/arduino/hardware/renesas_uno/1.5.1
+/Users/sensui/Library/Arduino15/packages/arduino/tools/arm-none-eabi-gcc/7-2017q4/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/bin/ld: section .stack_dummy VMA [0000000020007b00,0000000020007eff] overlaps section .heap VMA [0000000020005cc0,0000000020007cbf]
+collect2: error: ld returned 1 exit status
+Error during build: exit status 1

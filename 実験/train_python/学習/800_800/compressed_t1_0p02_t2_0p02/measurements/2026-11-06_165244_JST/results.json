@@ -1,0 +1,23 @@
+{
+  "status": "stopped_memory_insufficient",
+  "architecture": [
+    3,
+    800,
+    800,
+    3
+  ],
+  "threshold": 0.02,
+  "parameter_placement": "ram",
+  "failed_format": "coo",
+  "reason": "コンパイルのリンク時に.heapと.stack_dummyの領域重複エラーが発生した。",
+  "static_ram_bytes": null,
+  "flash_bytes": null,
+  "predict_stack_frame_bytes": null,
+  "sram_limit_bytes": 32768,
+  "physical_measurement_performed_for_failed_format": false,
+  "completed_measurements": {},
+  "pre_attempt_commit": "7ed47479e9823e862b22d9aa7999fb42626b0b3e",
+  "preparation_commit": "a2d307e74a05d37aeb8c5df3e1a09b63179d6364",
+  "last_firmware": "scanner_csr_600",
+  "stack_usage_files": []
+}
