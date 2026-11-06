@@ -1,0 +1,8 @@
+
+Used platform       Version Path
+arduino:renesas_uno 1.5.1   /Users/sensui/Library/Arduino15/packages/arduino/hardware/renesas_uno/1.5.1
+/Users/sensui/Library/Arduino15/packages/arduino/tools/arm-none-eabi-gcc/7-2017q4/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/bin/ld: /tmp/agilework2-900-cocoo-2026-11-06_164736_JST-build/scanner_coo_900.ino.elf section `.heap' will not fit in region `RAM'
+/Users/sensui/Library/Arduino15/packages/arduino/tools/arm-none-eabi-gcc/7-2017q4/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/bin/ld: section .stack_dummy VMA [0000000020007b00,0000000020007eff] overlaps section .heap VMA [0000000020006508,0000000020008507]
+/Users/sensui/Library/Arduino15/packages/arduino/tools/arm-none-eabi-gcc/7-2017q4/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/bin/ld: region `RAM' overflowed by 0 bytes
+collect2: error: ld returned 1 exit status
+Error during build: exit status 1

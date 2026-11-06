@@ -1,0 +1,23 @@
+{
+  "status": "stopped_memory_insufficient",
+  "architecture": [
+    3,
+    900,
+    900,
+    3
+  ],
+  "threshold": 0.02,
+  "parameter_placement": "ram",
+  "failed_format": "coo",
+  "reason": "コンパイル時にメモリ容量超過エラーが発生した。",
+  "static_ram_bytes": null,
+  "flash_bytes": null,
+  "predict_stack_frame_bytes": null,
+  "sram_limit_bytes": 32768,
+  "physical_measurement_performed_for_failed_format": false,
+  "completed_measurements": {},
+  "pre_attempt_commit": "c94a69329ebba8ffff2a188ae2c76e3b1daa668f",
+  "preparation_commit": "dca66d72141221e761f49b4a752086321c5e0903",
+  "last_firmware": "scanner_csr_600",
+  "stack_usage_files": []
+}
