@@ -1,0 +1,25 @@
+{
+  "status": "stopped_memory_insufficient",
+  "architecture": [
+    3,
+    700,
+    700,
+    3
+  ],
+  "threshold": 0.005,
+  "parameter_placement": "ram",
+  "failed_format": "coo",
+  "reason": "ビルド時にRAM領域の容量超過・重複エラーが発生した。",
+  "static_ram_bytes": null,
+  "flash_bytes": null,
+  "predict_stack_frame_bytes": null,
+  "available_sram_bytes": 32768,
+  "physical_measurement_performed_for_failed_format": false,
+  "completed_measurements_in_condition": {},
+  "pre_measurement_commit": "66a88ab0a9371c2225543124883ddf2a3649b94e",
+  "last_firmware": {
+    "format": "csr",
+    "dimension": 700,
+    "threshold": 0.01
+  }
+}
