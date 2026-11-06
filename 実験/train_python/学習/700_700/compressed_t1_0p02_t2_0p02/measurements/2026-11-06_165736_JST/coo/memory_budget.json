@@ -1,0 +1,11 @@
+{
+  "static_ram_bytes": 21588,
+  "predict_stack_frame_bytes": 5624,
+  "array_lower_bound_bytes": 5600,
+  "required_lower_bound_bytes": 27212,
+  "available_sram_bytes": 32768,
+  "within_lower_bound_budget": true,
+  "stack_usage_files": [
+    "/tmp/agilework2-700-cocoo-2026-11-06_165736_JST-build/sketch/scanner_coo_700.ino.cpp.su"
+  ]
+}
