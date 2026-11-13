@@ -315,6 +315,45 @@ $n$&容量[B]&MSE&時間[$\mu$s/回]&実機&根拠\\\midrule
 70次元は非圧縮でビルドできず，過去のエラー出力では\code{.heap}と\code{.stack_dummy}の重複が確認される．
 単純な配列サイズ不一致のエラーとは区別した．試験した40，50，60，70の範囲では，最後に動作した非圧縮モデルは60次元である．
 
+\subsection{共通閾値0.02の設定根拠}\label{sec:threshold-selection}
+次元数を変えた比較に用いる閾値を検討するため，両隠れ層を100次元に固定し，
+同じ学習済みモデルから閾値0.005，0.01，0.02，0.03の圧縮版を比較した．
+固定9画素に対するMSEを図\ref{fig:threshold-mse-100}に示す．
+各閾値でCOOとCSRのMSEは一致したため，グラフは共通の値を1本の線で示した．
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+    width=.88\linewidth,height=65mm,
+    xlabel={枝刈り閾値 $t$},ylabel={MSE},
+    xmin=0.002,xmax=0.033,ymin=0,ymax=110,
+    xtick={0.005,0.01,0.02,0.03},
+    xticklabels={0.005,0.01,0.02,0.03},
+    ytick={0,20,40,60,80,100},grid=major,
+    scaled x ticks=false,
+]
+\addplot[black,mark=*,thick,
+    nodes near coords,
+    every node near coord/.append style={font=\small,/pgf/number format/fixed,/pgf/number format/precision=3,/pgf/number format/zerofill},
+] coordinates {(0.005,91.77777777777777) (0.01,91.77777777777777) (0.02,83.37037037037037) (0.03,88.48148148148148)};
+\draw[gray,densely dashed] (axis cs:0.02,0) -- (axis cs:0.02,83.37037037037037);
+\addplot[black,only marks,mark=o,mark size=3.5pt,thick] coordinates {(0.02,83.37037037037037)};
+\node[anchor=north,font=\small] at (axis cs:0.02,75) {共通閾値};
+\end{axis}
+\end{tikzpicture}
+\caption{100次元における閾値とMSE．COO・CSRは同値．点は測定値，線は点を結んだものである．}
+\label{fig:threshold-mse-100}
+\end{figure}
+
+0.005と0.01のMSEはともに91.778であったが，0.02では83.370となり，検証した4閾値の中で最小となった．
+0.03まで閾値を上げるとMSEは88.481に増加し，0.02より補正誤差が大きくなった．
+また，表\ref{tab:threshold}に示すとおり，0.01から0.02への変更ではCOO・CSRともに保存容量と推論時間が小さくなった．
+0.03では容量と時間がさらに減少するものの，MSEが増加するため，補正精度を優先しながら小容量化を図る条件として，
+共通閾値0.02を用いることはこの比較結果から妥当と考えられる．
+以降の次元数比較では閾値を0.02に固定し，次元数と閾値の変更による影響が混在しないようにした．
+ただし，この根拠は100次元・固定9画素・4閾値の比較に基づき，他の次元数や画像での最適性を保証するものではない．
+
 \subsection{閾値0.02での次元数比較}
 \begin{table}[H]\centering\small
 \caption{保存済み実機ログから照合した圧縮版の結果（$t=0.02$）}\label{tab:main}
@@ -498,6 +537,7 @@ COOはCSRより容量が約7.44\%小さく，平均推論時間が約10.34\%短�
 一方，次元数とMSEは単調な関係を示さず，枝刈り前後の品質保持と形式ごとの絶対的な搭載限界は本実験だけでは確定できない．
 今後は評価データと学習反復を増やし，残存パラメータと作業領域の削減を検討する必要がある．
 
+\clearpage
 \begin{thebibliography}{9}\small
 \bibitem{plan} 泉水悠斗：アジャイルワーク２ 実験計画書，実験計画書\code{/}実験計画書\code{.tex}，参照版は文献\cite{repo}のコミットに含まれる．
 \bibitem{han} Han, S., Pool, J., Tran, J. and Dally, W. J.: Learning both Weights and Connections for Efficient Neural Networks, Advances in Neural Information Processing Systems 28 (2015), \url{https://arxiv.org/abs/1506.02626}（参照2026-11-13）．
