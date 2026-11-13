@@ -412,6 +412,32 @@ MSEは100次元で83.370，200で94.889，300で50.593となり，次元数に�
 \end{axis}\end{tikzpicture}
 \caption{閾値0.02の次元数とMSE（COO・CSRは同値）}
 \end{figure}
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+    width=.88\linewidth,height=55mm,
+    xlabel={両隠れ層の次元数 $n$},ylabel={圧縮率 [\%]},
+    xmin=80,xmax=720,ymin=0,ymax=7,
+    xtick={100,200,300,400,500,600,700},
+    ytick={0,1,2,3,4,5,6,7},grid=major,legend pos=north east,
+]
+\addplot[black,mark=*,thick] coordinates {(100,6.350087938535592) (200,2.8471504458813066) (300,1.901723970000974) (400,1.3905994375103399) (500,1.0661291402070054) (600,0.8847926140958271) (700,0.7472210620193986)};\addlegendentry{COO}
+\addplot[black,dashed,mark=square*,thick] coordinates {(100,6.535221697676572) (200,3.0160084609282984) (300,1.992630109412032) (400,1.470254836001789) (500,1.1432935831466557) (600,0.9509927275817359) (700,0.8072489472420465)};\addlegendentry{CSR}
+\end{axis}
+\end{tikzpicture}
+\caption{閾値0.02の次元数と圧縮率（同一次元数の非圧縮容量を基準）}
+\label{fig:compression-ratio-dimension}
+\end{figure}
+
+図\ref{fig:compression-ratio-dimension}に，次元数と圧縮率の関係を示す．
+圧縮率は圧縮後容量の割合であり，小さいほど同一次元数の非圧縮版に対する容量削減の割合が大きい．
+100次元から700次元に増やすと，COOの圧縮率は6.350\%から0.747\%，CSRは6.535\%から0.807\%へ低下した．
+一方，圧縮後の保存容量自体は，COOで2,744 Bから14,813 B，CSRで2,824 Bから16,003 Bへ増加した．
+これは分母となる非圧縮容量の増加が圧縮後容量の増加より大きいためであり，圧縮率の低下が保存容量自体の減少を意味するわけではない．
+
+
 \begin{figure}[H]\centering
 \begin{tikzpicture}
 \begin{axis}[width=.88\linewidth,height=55mm,xlabel={両隠れ層の次元数 $n$},ylabel={平均推論時間 [$\mu$s/回]},xmin=80,xmax=720,ymin=0,xtick={100,200,300,400,500,600,700},grid=major,legend pos=north west]
