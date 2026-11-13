@@ -357,7 +357,7 @@ $t$&容量[B]&共通MSE&COO時間&CSR時間\\\midrule
 \node[anchor=north,font=\small] at (axis cs:0.02,75) {共通閾値};
 \end{axis}
 \end{tikzpicture}
-\caption{100次元における閾値とMSE．COO・CSRは同値．点は測定値，線は点を結んだものである．}
+\caption{100次元における閾値とMSE（COO・CSRは同値）}
 \label{fig:threshold-mse-100}
 \end{figure}
 
@@ -410,7 +410,7 @@ MSEは100次元で83.370，200で94.889，300で50.593となり，次元数に�
 \begin{axis}[width=.88\linewidth,height=55mm,xlabel={両隠れ層の次元数 $n$},ylabel={MSE},xmin=80,xmax=720,ymin=0,ymax=120,xtick={100,200,300,400,500,600,700},grid=major]
 \addplot[black,mark=*,thick] coordinates {(100,83.37037037037037) (200,94.88888888888889) (300,50.592592592592595) (400,62.407407407407405) (500,53.851851851851855) (600,103.18518518518519) (700,38.03703703703704)};
 \end{axis}\end{tikzpicture}
-\caption{閾値0.02の次元数とMSE．COO・CSRは同値のため1本で示す．}
+\caption{閾値0.02の次元数とMSE（COO・CSRは同値）}
 \end{figure}
 \begin{figure}[H]\centering
 \begin{tikzpicture}
@@ -418,7 +418,7 @@ MSEは100次元で83.370，200で94.889，300で50.593となり，次元数に�
 \addplot[black,mark=*,thick] coordinates {(100,192.3334) (200,336.1394) (300,488.635) (400,635.957) (500,767.4702) (600,915.0898) (700,1054.3992)};\addlegendentry{COO}
 \addplot[black,dashed,mark=square*,thick] coordinates {(100,206.023) (200,370.773) (300,531.5828) (400,697.7656) (500,851.307) (600,1016.2392) (700,1175.9366)};\addlegendentry{CSR}
 \end{axis}\end{tikzpicture}
-\caption{閾値0.02の次元数と平均推論時間．}
+\caption{閾値0.02の次元数と平均推論時間}
 \end{figure}
 
 \subsection{RAM使用量と測定できなかった条件}
@@ -461,6 +461,7 @@ CSRについては実際のビルド・実機失敗を確認した結果では�
 \[
     4(3\times700+700+700+3)=14,012\ \mathrm{B}
 \]
+
 である．したがって
 
 \begin{align*}
@@ -469,6 +470,7 @@ CSRについては実際のビルド・実機失敗を確認した結果では�
     S_{\mathrm{CSR}}&=47(4+1)+701+59(4+2)+701+14,012\\
     &=235+701+354+701+14,012=16,003\ \mathrm{B}.
 \end{align*}
+
 非圧縮容量は$4(700^2+8\times700+3)=1,982,412$ Bなので，
 圧縮率はCOOが0.747\%，CSRが0.807\%，削減率は99.253\%，99.193\%となる．
 いずれも同じ700次元の非圧縮モデルを分母とした理論容量との比較であり，
