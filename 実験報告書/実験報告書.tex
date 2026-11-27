@@ -340,7 +340,7 @@ COOとCSRの処理量はともに$O(R+K)$だが，索引の読み取り回数，
 
 \begin{table}[H]
 \centering\small
-\caption{計画と実施方法の主な相違}
+\caption{計画と実施方法の主な相違}\label{tab:change}
 \renewcommand{\arraystretch}{1.25}
 \begin{tabularx}{\linewidth}{p{23mm}YY}\toprule
 項目&計画書&実施した方法\\\midrule
@@ -399,7 +399,7 @@ COOがメモリ不足になった時点で停止した条件では，未実施�
 主要なソースコードと保存ファイルの役割を表\ref{tab:source}に示す．
 
 \begin{table}[H]\centering\small
-\caption{主要なソースコードと保存ファイル}
+\caption{主要なソースコードと保存ファイル}\label{tab:source}
 \renewcommand{\arraystretch}{1.2}
 \begin{tabularx}{\linewidth}{p{70mm}Y}\toprule
 ファイル&役割\\\midrule
@@ -451,7 +451,7 @@ CSRの開始位置の単調性・終端を検査する．出力のNaN・無限�
 使用したボード，ビルド条件，学習環境，学習条件，評価条件，時間測定の方法を表\ref{tab:common}に示す．
 
 \begin{table}[H]\centering\small
-\caption{100〜900次元の主系列に共通する条件}
+\caption{100〜900次元の主系列に共通する条件}\label{tab:common}
 \renewcommand{\arraystretch}{1.15}
 \begin{tabularx}{\linewidth}{p{35mm}Y}\toprule
 項目&条件\\\midrule
@@ -568,7 +568,7 @@ COOとCSRは，同じ次元数・学習済み重み・閾値・入力順序・�
 非圧縮版の両隠れ層を同じ幅にした場合の容量，MSE，平均推論時間を表\ref{tab:non-compressed}に示す．
 
 \begin{table}[H]\centering\small
-\caption{両隠れ層を同じ幅にした非圧縮版の結果}
+\caption{両隠れ層を同じ幅にした非圧縮版の結果}\label{tab:non-compressed}
 \begin{tabular}{rrrrrl}\toprule
 $n$&容量[B]&MSE&時間[$\mu$s/回]&実機&根拠\\\midrule
 40&7,692&427.963&472.436&可&Excel記録・保存PPM\\\midrule
@@ -678,7 +678,7 @@ MSEは，図\ref{fig:mse-dimension}からわかるように，100次元で83.370
 \begin{axis}[width=.88\linewidth,height=55mm,xlabel={両隠れ層の次元数 $n$},ylabel={MSE},xmin=80,xmax=720,ymin=0,ymax=120,xtick={100,200,300,400,500,600,700},grid=major]
 \addplot[black,mark=*,thick] coordinates {(100,83.37037037037037) (200,94.88888888888889) (300,50.592592592592595) (400,62.407407407407405) (500,53.851851851851855) (600,103.18518518518519) (700,38.03703703703704)};
 \end{axis}\end{tikzpicture}
-\caption{閾値0.02の次元数とMSE（COO・CSRは同値）}
+\caption{閾値0.02の次元数とMSE（COO・CSRは同値）}\label{fig:mse-dimension}
 \end{figure}
 
 \begin{figure}[H]
