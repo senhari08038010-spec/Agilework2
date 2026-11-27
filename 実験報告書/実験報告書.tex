@@ -35,6 +35,7 @@
 \renewcommand{\baselinestretch}{1.12}
 \renewcommand{\figurename}{図}
 \renewcommand{\tablename}{表}
+\renewcommand{\lstlistingname}{プログラム}
 \captionsetup{font=small,labelsep=quad}
 \lstset{basicstyle=\ttfamily\footnotesize,columns=fullflexible,keepspaces=true,frame=single,breaklines=true,aboveskip=8pt,belowskip=8pt}
 \newcolumntype{Y}{>{\raggedright\arraybackslash}X}
@@ -417,9 +418,10 @@ COOがメモリ不足になった時点で停止した条件では，未実施�
 同じ走査結果から両形式を作るため，枝刈りによる差と形式による差を混同しない．
 元ヘッダーのSHA-256と次元数も生成先に保存する．
 整数索引は，行・列番号の最大値と非ゼロ数のそれぞれを表せる最小の符号なし整数型にする．
-Arduino側は密行列を復元せず，疎形式を直接参照する．COOの1層分は次の処理に対応する．
+Arduino側は密行列を復元せず，疎形式を直接参照する．
+COO形式による1層分の推論処理をプログラム\ref{lst:coo-inference}に示す．
 
-\begin{lstlisting}[language=C++,texcl=true,commentstyle=\upshape]
+\begin{lstlisting}[language=C++,texcl=true,commentstyle=\upshape,caption={COO形式による1層分の推論処理},label={lst:coo-inference}]
 for (uint32_t r = 0; r < rows; ++r) h[r] = bias[r]; // バイアスで初期化
 // 非ゼロの重みと列の入力を掛け，対応する行の出力に加算
 for (uint32_t k = 0; k < nnz; ++k)
@@ -428,9 +430,10 @@ for (uint32_t r = 0; r < rows; ++r)
     if (h[r] < 0.0f) h[r] = 0.0f; // ReLUで負の値を0にする
 \end{lstlisting}
 %
+CSR形式による1層分の推論処理をプログラム\ref{lst:csr-inference}に示す．
 CSRでは各行の開始位置と終了位置を取り出し，その範囲だけを計算する．
 
-\begin{lstlisting}[language=C++,texcl=true,commentstyle=\upshape]
+\begin{lstlisting}[language=C++,texcl=true,commentstyle=\upshape,caption={CSR形式による1層分の推論処理},label={lst:csr-inference}]
 for (uint32_t r = 0; r < rows; ++r) {
     float sum = bias[r]; // この行の出力をバイアスで初期化
     // 行の開始位置から次の行の開始位置の手前まで積和
