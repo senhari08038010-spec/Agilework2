@@ -706,19 +706,23 @@ MSEは，図\ref{fig:mse-dimension}からわかるように，100次元で83.370
 これは分母となる非圧縮容量の増加が圧縮後容量の増加より大きいためであり，圧縮率の低下が保存容量自体の減少を意味するわけではない．
 
 
+閾値0.02での次元数とCOO・CSRの平均推論時間の関係を図\ref{fig:time-dimension}に示す．
+
 \begin{figure}[H]\centering
 \begin{tikzpicture}
 \begin{axis}[width=.88\linewidth,height=55mm,xlabel={両隠れ層の次元数 $n$},ylabel={平均推論時間 [$\mu$s/回]},xmin=80,xmax=720,ymin=0,xtick={100,200,300,400,500,600,700},grid=major,legend pos=north west]
 \addplot[black,mark=*,thick] coordinates {(100,192.3334) (200,336.1394) (300,488.635) (400,635.957) (500,767.4702) (600,915.0898) (700,1054.3992)};\addlegendentry{COO}
 \addplot[black,dashed,mark=square*,thick] coordinates {(100,206.023) (200,370.773) (300,531.5828) (400,697.7656) (500,851.307) (600,1016.2392) (700,1175.9366)};\addlegendentry{CSR}
 \end{axis}\end{tikzpicture}
-\caption{閾値0.02の次元数と平均推論時間}
+\caption{閾値0.02の次元数と平均推論時間}\label{fig:time-dimension}
 \end{figure}
 
 \subsection{RAM使用量と測定できなかった条件}
+閾値0.02での各次元数におけるビルド時の静的RAM・フラッシュ使用量と，
+推論時に使用する中間配列の容量を表\ref{tab:memory}に示す．
 
 \begin{table}[H]\centering\small
-\caption{閾値0.02のビルド時メモリ量．対の値はCOO／CSRの順．}
+\caption{閾値0.02のビルド時メモリ量．対の値はCOO／CSRの順．}\label{tab:memory}
 \setlength{\tabcolsep}{5pt}
 \begin{tabular}{rrrr}\toprule
 $n$&静的RAM[B]&中間配列[B]&フラッシュ[B]\\\midrule
