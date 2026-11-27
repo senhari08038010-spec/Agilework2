@@ -526,22 +526,24 @@ COOとCSRは，同じ次元数・学習済み重み・閾値・入力順序・�
 整数索引は，行・列番号の最大値と非ゼロ数のそれぞれを表せる最小の符号なし整数型にする．
 Arduino側は密行列を復元せず，疎形式を直接参照する．COOの1層分は次の処理に対応する．
 
-\begin{lstlisting}[language=C++]
-for (uint32_t r = 0; r < rows; ++r) h[r] = bias[r];
+\begin{lstlisting}[language=C++,texcl=true,commentstyle=\upshape]
+for (uint32_t r = 0; r < rows; ++r) h[r] = bias[r]; // バイアスで初期化
+// 非ゼロの重みと列の入力を掛け，対応する行の出力に加算
 for (uint32_t k = 0; k < nnz; ++k)
     h[row_index[k]] += values[k] * input[col_index[k]];
 for (uint32_t r = 0; r < rows; ++r)
-    if (h[r] < 0.0f) h[r] = 0.0f;
+    if (h[r] < 0.0f) h[r] = 0.0f; // ReLUで負の値を0にする
 \end{lstlisting}
 
 CSRでは各行の開始位置と終了位置を取り出し，その範囲だけを計算する．
 
-\begin{lstlisting}[language=C++]
+\begin{lstlisting}[language=C++,texcl=true,commentstyle=\upshape]
 for (uint32_t r = 0; r < rows; ++r) {
-    float sum = bias[r];
+    float sum = bias[r]; // この行の出力をバイアスで初期化
+    // 行の開始位置から次の行の開始位置の手前まで積和
     for (uint32_t k = row_ptr[r]; k < row_ptr[r + 1]; ++k)
         sum += values[k] * input[col_index[k]];
-    h[r] = sum > 0.0f ? sum : 0.0f;
+    h[r] = sum > 0.0f ? sum : 0.0f; // ReLUを適用して出力を保存
 }
 \end{lstlisting}
 
